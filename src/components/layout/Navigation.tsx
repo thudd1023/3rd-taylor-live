@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ─── Nav data ────────────────────────────────────────────────────────────────
@@ -197,8 +198,14 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
           className="fixed inset-0 z-50 bg-brand-bg-dark overflow-y-auto"
         >
           <div className="flex items-center justify-between px-4 h-16 border-b border-white/10">
-            <Link href="/" onClick={onClose} className="font-headline font-extrabold text-xl text-white">
-              3rd + Taylor
+            <Link href="/" onClick={onClose} className="flex items-center">
+              <Image
+                src="/images/logo light.svg"
+                alt="3rd + Taylor"
+                width={140}
+                height={12}
+                className="h-6 w-auto"
+              />
             </Link>
             <button onClick={onClose} className="p-2 text-white/70 hover:text-white">
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -354,8 +361,15 @@ export default function Navigation() {
         <div className="container-site">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
-            <Link href="/" className="font-headline font-extrabold text-xl text-white shrink-0">
-              3rd + Taylor
+            <Link href="/" className="shrink-0 flex items-center">
+              <Image
+                src="/images/logo light.svg"
+                alt="3rd + Taylor"
+                width={160}
+                height={14}
+                priority
+                className="h-7 w-auto"
+              />
             </Link>
 
             {/* Desktop nav */}

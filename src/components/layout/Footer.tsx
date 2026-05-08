@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerColumns = [
   {
@@ -57,8 +58,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="font-headline font-extrabold text-xl text-white">
-              3rd + Taylor
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/logo light.svg"
+                alt="3rd + Taylor"
+                width={140}
+                height={12}
+                className="h-6 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-white/50 font-body leading-relaxed max-w-[220px]">
               Marketing built for B2B tech brands that need pipeline, not just presence.
