@@ -3,10 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: #08080F;
-  --foreground: #f0eeff;
+  --background: #07050E;
+  --foreground: #EAE6F8;
   --font-bricolage: "Bricolage Grotesque", sans-serif;
   --font-manrope: "Manrope", sans-serif;
+
+  /* Dark palette */
+  --brand-dark-1: #07050E;
+  --brand-dark-2: #0D0A1C;
+  --brand-dark-3: #121028;
+  --brand-dark-4: #181438;
+  --brand-dark-5: #1F1A48;
+  --brand-dark-6: #272058;
+
+  /* Light palette */
+  --brand-light-1: #EAE5FF;
+  --brand-light-2: #F0ECFF;
+  --brand-light-3: #F6F4FF;
+
+  /* Text */
+  --brand-on-dark: #EAE6F8;
+  --brand-muted-dark: #9B8FF0;
+  --brand-on-light: #18153A;
+  --brand-muted-light: #4A3F8C;
 }
 
 @layer base {
@@ -21,8 +40,8 @@
   }
 
   body {
-    background-color: #08080F;
-    color: #f0eeff;
+    background-color: #07050E;
+    color: #EAE6F8;
     font-family: var(--font-manrope), sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -33,12 +52,12 @@
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.025em;
-    color: #f0eeff;
+    color: #EAE6F8;
   }
 
   p {
     font-family: var(--font-manrope), sans-serif;
-    color: rgba(240, 238, 255, 0.75);
+    color: #C5C0E8;
   }
 
   a {
@@ -50,19 +69,24 @@
     background-color: #6343ff;
     color: #ffffff;
   }
+
+  *:focus-visible {
+    outline: 2px solid #9B8FF0;
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-primary text-white font-body font-semibold text-sm transition-all duration-200 hover:bg-opacity-90 hover:shadow-glow-primary focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 focus:ring-offset-brand-bg-dark;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-primary text-white font-body font-semibold text-sm transition-all duration-200 hover:bg-opacity-90 hover:shadow-glow-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B8FF0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07050E];
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-accent text-brand-bg-dark font-body font-semibold text-sm transition-all duration-200 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-brand-bg-dark;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-accent text-brand-bg-dark font-body font-semibold text-sm transition-all duration-200 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B8FF0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07050E];
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-white/20 text-white font-body font-semibold text-sm transition-all duration-200 hover:border-white/40 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-brand-bg-dark;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-white/20 text-white font-body font-semibold text-sm transition-all duration-200 hover:border-white/40 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B8FF0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07050E];
   }
 
   .section-label {
@@ -76,11 +100,35 @@
   .gradient-text {
     @apply bg-gradient-to-r from-brand-primary via-brand-light-purple to-brand-accent bg-clip-text text-transparent;
   }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px;
+    background: #C4E61A;
+    color: #09070E;
+    font-weight: 700;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
   }
 
   .noise-bg {

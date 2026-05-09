@@ -154,7 +154,7 @@ function NavItem({
     return (
       <Link
         href={href ?? "#"}
-        className="text-sm font-medium text-white/70 hover:text-white transition-colors px-1 py-2 font-body"
+        className="text-sm font-medium text-white/70 hover:text-white transition-colors px-1 py-2 font-body whitespace-nowrap"
       >
         {label}
       </Link>
@@ -165,7 +165,7 @@ function NavItem({
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 text-sm font-medium text-white/70 hover:text-white transition-colors px-1 py-2 font-body"
+        className="flex items-center gap-1 text-sm font-medium text-white/70 hover:text-white transition-colors px-1 py-2 font-body whitespace-nowrap"
         aria-expanded={open}
       >
         {label}
@@ -292,7 +292,7 @@ function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
               Free GTM Scan
             </Link>
             <Link href="/contact" onClick={onClose} className="btn-ghost w-full text-center">
-              Let's Talk
+              Let&apos;s Talk
             </Link>
           </div>
         </motion.div>
@@ -359,21 +359,21 @@ export default function Navigation() {
         }`}
       >
         <div className="container-site">
-          <div className="flex items-center justify-between h-16 lg:h-[72px]">
+          <div className="flex items-center h-16 lg:h-[72px] gap-10 lg:gap-14">
             {/* Logo */}
             <Link href="/" className="shrink-0 flex items-center">
               <Image
                 src="/images/logo light.svg"
                 alt="3rd + Taylor"
-                width={160}
-                height={14}
+                width={120}
+                height={10}
                 priority
-                className="h-7 w-auto"
+                className="h-5 w-auto"
               />
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1 flex-1">
               <NavItem label="Solutions">
                 <ColumnMenu data={solutionsMenu} />
               </NavItem>
@@ -394,12 +394,12 @@ export default function Navigation() {
             </nav>
 
             {/* CTA buttons */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3 shrink-0 ml-auto">
               <Link href="/gtm-scan" className="btn-accent text-sm px-4 py-2">
                 Free GTM Scan
               </Link>
               <Link href="/contact" className="btn-ghost text-sm px-4 py-2">
-                Let's Talk
+                Let&apos;s Talk
               </Link>
             </div>
 

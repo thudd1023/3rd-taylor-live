@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import SiteLayout from "@/components/layout/SiteLayout";
+import ProgressBar from "@/components/ui/ProgressBar";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -56,6 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bricolage.variable} ${manrope.variable}`}>
       <body className="antialiased font-body bg-brand-bg-dark text-white">
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <ProgressBar />
         <SiteLayout>{children}</SiteLayout>
       </body>
     </html>
